@@ -21,9 +21,27 @@ header {
     margin-bottom: 20px;
 }
 
+.status-box {
+    padding: 10px;
+    background-color: #eceff1;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    text-align: center; 
+    align-self: center; /* Ensure it aligns properly if there's space */
+    width: 300px; /* Smaller width for the status box */
+    margin-left: auto; /* Aligns the box to the right */
+}
+
+.status-title {
+    font-size: 18px;
+    color: #666;
+    margin: 0 0 10px 0; /* Adds space below the title */
+}
+
 .status-area {
     display: flex;
-    align-items: center;
+    justify-content: center; /* Horizontally centers content */
+    align-items: center; /* Vertically aligns content */
 }
 
 .status-indicator {
@@ -31,7 +49,11 @@ header {
     height: 20px;
     border-radius: 50%;
     background-color: red;
-    margin-right: 10px;
+    margin-right: 10px; /* Space between the indicator and the text */
+}
+
+#status-text {
+    display: inline; /* Keeps the text inline with the indicator */
 }
 
 .refresh-button {

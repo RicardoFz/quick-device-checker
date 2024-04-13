@@ -20,7 +20,6 @@ function checkDeviceConnection() {
             return;
         }
 
-        // Verifica se há dispositivos listados além do cabeçalho da tabela
         const isConnected = stdout.split('\n').some(line => line.trim().endsWith('device'));
         updateStatusIndicator(isConnected);
     });
@@ -52,7 +51,7 @@ function getAndroidProperties() {
         };
 
         const properties = stdout.split('\n')
-          .filter(line => line.match(/^\[ro\.(build\.(fingerprint|id|product|type|version\.release|version\.sdk)|carrier|boot\.hardware\.sku|vendor\.product\.name)\]: \[(.*)\]/))
+          .filter(line => line.match(/^\[ro\.(build\.(fingerprint|id|product|type|version\.release|version\.sdk)|carrier|boot\.hardware\.sku|vendor\.product.name)\]: \[(.*)\]/))
           .map(prop => {
             const match = prop.match(/^\[([^\]]+)\]: \[([^\]]+)\]/);
             const propertyName = match[1];
@@ -63,7 +62,7 @@ function getAndroidProperties() {
 
         // Exibir as propriedades na página
         document.getElementById('deviceInfo').innerHTML = properties.join('<br>');
-        updateStatusIndicator(true); // Assuming a successful data fetch means the device is connected
+        updateStatusIndicator(true);
     });
 }
 

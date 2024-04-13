@@ -1,0 +1,61 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+}
+
+.app-container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    background-color: #fff;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.status-area {
+    display: flex;
+    align-items: center;
+}
+
+.status-indicator {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: red;
+    margin-right: 10px;
+}
+
+.refresh-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #0056b3;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.refresh-button:hover {
+    background-color: #003580;
+}
+
+.device-info {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #f0f0f0;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.property-name {
+    font-weight: bold;
+}

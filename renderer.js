@@ -2,7 +2,9 @@ const { exec } = require('child_process');
 
 function updateStatusIndicator(isConnected) {
     const statusElement = document.getElementById('status');
+    const statusText = document.getElementById('status-text');
     statusElement.style.backgroundColor = isConnected ? 'green' : 'red';
+    statusText.textContent = isConnected ? 'Connected' : 'Not Connected';
 }
 
 function checkDeviceConnection() {
@@ -18,6 +20,7 @@ function checkDeviceConnection() {
             return;
         }
 
+        // Verifica se há dispositivos listados além do cabeçalho da tabela
         const isConnected = stdout.split('\n').some(line => line.trim().endsWith('device'));
         updateStatusIndicator(isConnected);
     });
@@ -60,7 +63,7 @@ function getAndroidProperties() {
 
         // Exibir as propriedades na página
         document.getElementById('deviceInfo').innerHTML = properties.join('<br>');
-        updateStatusIndicator(true);
+        updateStatusIndicator(true); // Assuming a successful data fetch means the device is connected
     });
 }
 
@@ -71,5 +74,5 @@ document.addEventListener('DOMContentLoaded', () => {
         getAndroidProperties();
     });
 
-    setInterval(checkDeviceConnection, 5000);
+    setInterval(checkDeviceConnection, 5000); // Verifica a conexão a cada 5 segundos
 });

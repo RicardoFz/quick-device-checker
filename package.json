@@ -11,9 +11,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "electron": "^29.3.0"
-  },
-  "dependencies": {
+    "electron": "^29.3.0",
     "electron-reload": "^2.0.0-alpha.1"
   }
 }

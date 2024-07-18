@@ -60,7 +60,6 @@ function getAndroidProperties() {
             return `<span class="property-name">${displayName}:</span> ${propertyValue}`;
         });
 
-        // Exibir as propriedades na página
         document.getElementById('deviceInfo').innerHTML = properties.join('<br>');
         updateStatusIndicator(true);
     });
@@ -73,5 +72,19 @@ document.addEventListener('DOMContentLoaded', () => {
         getAndroidProperties();
     });
 
-    setInterval(checkDeviceConnection, 5000); // Verifica a conexão a cada 5 segundos
+    setInterval(checkDeviceConnection, 5000);
+
+    document.querySelectorAll('.sidebar nav a').forEach(link => {
+        link.addEventListener('click', (event) => {
+            event.preventDefault();
+            const targetId = link.getAttribute('href').substring(1);
+            document.querySelectorAll('.section').forEach(section => {
+                section.classList.remove('active');
+            });
+            document.getElementById(targetId).classList.add('active');
+        });
+    });
+
+    // Mostrar a seção Device Info por padrão
+    document.getElementById('device-info').classList.add('active');
 });

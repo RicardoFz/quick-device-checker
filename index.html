@@ -1,43 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Android Device Properties</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Android Device Properties</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="app-container">
-        <aside class="sidebar">
-            <nav>
-                <ul>
-                    <li><a href="#device-info">Device Info</a></li>
-                    <li><a href="#adb-tool">ADB Tool</a></li>
-                </ul>
-            </nav>
-        </aside>
-        <main class="content">
-            <header>
-                <h1>Android Device Checker</h1>
-                <div class="status-box">
-                    <h2 class="status-title">Device Status</h2>
-                    <div class="status-area">
-                        <div id="status" class="status-indicator"></div>
-                        <span id="status-text">Not Connected</span>
-                    </div>
-                    <button id="refreshButton" class="refresh-button">Get Device Info</button>
-                </div>
-            </header>
-            <section id="device-info" class="section">
-                <div id="deviceInfo" class="device-info"></div>
-            </section>
-            <section id="adb-tool" class="section">
-                <h2>ADB Tool</h2>
-                <!-- Conteúdo futuro para ADB Tool -->
-            </section>
-        </main>
+  <div class="container-fluid">
+    <div class="row">
+      <aside class="col-2 sidebar bg-light">
+        <nav class="nav flex-column">
+          <a class="nav-link active" href="#device-info">Device Info</a>
+          <a class="nav-link" href="#flash-build">Flash Build</a>
+          <a class="nav-link" href="#configure-flags">Configure Flags</a>
+        </nav>
+      </aside>
+      <main class="col-10 content">
+        <header class="d-flex flex-column align-items-center mt-3">
+          <h1 class="text-center w-100">Android Device Checker</h1>
+        </header>
+        <div class="d-flex flex-column align-items-end mt-3">
+          <div class="status-box alert alert-info mb-2 mr-3">
+            <h2 class="status-title mb-1">Device Status</h2>
+            <div class="status-area d-flex align-items-center">
+              <div id="status" class="status-indicator mr-2"></div>
+              <span id="status-text">Not Connected</span>
+            </div>
+          </div>
+          <button id="refreshButton" class="btn btn-primary get-device-info-btn">Get Device Info</button>
+        </div>
+        <section id="device-info" class="section mt-3 p-3 shadow-sm bg-white rounded">
+          <div id="deviceInfo" class="device-info card">
+            <div class="card-body">
+              <!-- Propriedades do dispositivo serão inseridas aqui -->
+            </div>
+          </div>
+        </section>
+        <section id="flash-build" class="section mt-3 p-3 shadow-sm bg-white rounded">
+          <h2>Flash Build</h2>
+          <input type="file" id="buildFile" accept=".img,.zip" class="form-control-file mb-2"/>
+          <button id="flashButton" class="btn btn-success">Flash Build</button>
+        </section>
+        <section id="configure-flags" class="section mt-3 p-3 shadow-sm bg-white rounded">
+          <h2>Configure Flags</h2>
+          <div class="form-check">
+            <input type="checkbox" id="flag1" class="form-check-input"/>
+            <label for="flag1" class="form-check-label">Enable Feature 1</label>
+          </div>
+          <div class="form-check">
+            <input type="checkbox" id="flag2" class="form-check-input"/>
+            <label for="flag2" class="form-check-label">Enable Feature 2</label>
+          </div>
+          <button id="applyFlagsButton" class="btn btn-warning mt-2">Apply Flags</button>
+        </section>
+      </main>
     </div>
-    <script src="renderer.js"></script>
+  </div>
+  <script src="renderer.js"></script>
 </body>
 </html>
